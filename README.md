@@ -7,6 +7,11 @@ A userscript or two.
 Removes First Reads giveaway offerings with a low number of books. 
 The higher the count, the not-as-bad chances of winning a review copy.
 
+### [Goodreads giveaways arrow pager](./goodreads-arrow-pager.user.js)
+
+Navigate the giveaway pages with left and right arrow keys instead of 
+having to click the pagination links.
+
 
 ## License
 
