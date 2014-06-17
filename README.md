@@ -12,6 +12,11 @@ The higher the count, the not-as-bad chances of winning a review copy.
 Navigate the giveaway pages with left and right arrow keys instead of 
 having to click the pagination links.
 
+### [Cracked.com hidden moves](./cracked-hidden-moves.user.js)
+
+Hide topics that have been moved into another sub-forum, 
+cleaning up thread list.
+
 
 ## License
 
