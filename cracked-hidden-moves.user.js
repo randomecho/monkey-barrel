@@ -31,7 +31,6 @@ function hiddenMoves()
 
         if (cell.indexOf('MOVED:') != -1)
         {
-            table_cells[k].innerText = '';
             table_cells[k].parentNode.remove();
         }
       }
