@@ -40,4 +40,17 @@ function wipeOut(minimum_books)
   }
 }
 
-window.onload = wipeOut(minimum_books);
+function readyFire()
+{
+  var playground_present = document.getElementsByClassName('listElement');
+  if ( ! playground_present)
+  {
+    setTimeout(function() {readyFire()}, 1000);
+  }
+  else
+  {
+    wipeOut(minimum_books);
+  }
+}
+
+window.onload = readyFire();
