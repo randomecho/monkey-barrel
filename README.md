@@ -17,6 +17,11 @@ having to click the pagination links.
 Hide topics that have been moved into another sub-forum, 
 cleaning up thread list.
 
+### [Stack Exchange - Unanswered waiting for an upvote](./se-voteable-unanswered.user.js)
+
+Hides Unanswered questions with zero answers, showing only those needing 
+upvotes. Unanswered is defined as a question with no upvoted answers.
+
 
 ## License
 
