@@ -3,7 +3,7 @@
 // @namespace     randomecho.com
 // @description   Remove First Reads giveaways offering a low number of books
 // @include       https://www.goodreads.com/giveaway*
-// @include       http://www.goodreads.com/giveaway*
+// @exclude       https://www.goodreads.com/giveaway/show/*
 // @grant         none
 // @copyright     2014 Soon Van
 // @author        Soon Van - randomecho.com
