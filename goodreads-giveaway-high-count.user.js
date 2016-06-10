@@ -8,34 +8,33 @@
 // @copyright     2014 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.0
+// @version       1.1
 // ==/UserScript==
 
-var minimum_books = 10;
+var minimumBooks = 10;
 
-function wipeOut(minimum_books)
+function wipeOut(minimumBooks)
 {
-  var listBooks = document.getElementsByClassName('listElement');
+  var listBooks = document.getElementsByClassName('giveawayListItem');
   listBooks = Array.prototype.slice.call(listBooks);
 
-  for (i = 0; i < listBooks.length; i++)
-  {
-    var book_entry = listBooks[i];
-    
+  for (i = 0; i < listBooks.length; i++) {
+    var bookEntry = listBooks[i];
+
     // Drill down to the right side of the entry
-    var copies_block = book_entry.querySelectorAll('div.content230 div.sansSerif div');
-    copies_block = Array.prototype.slice.call(copies_block);
+    var giveawayDetails = bookEntry.querySelectorAll('div.giveawayDetails');
+    giveawayDetailItem = Array.prototype.slice.call(giveawayDetails); // Convert into array
 
-    // Since the block with the count is not the first unclassed DIV seen
-    var copies_info = copies_block[1].innerHTML.trim();
-    copies_info = copies_info.split('\n');
+    // Look for the "Availability" block
+    var giveawayAvailability = giveawayDetailItem[0].childNodes[3].innerText.trim();
+    giveawayCopies = giveawayAvailability.split('\n');
 
-    // Grab the number from the "X copies" text
-    var copies_count = parseInt(copies_info[0].replace(/cop(ies|y)/i, ''));
+    // Grab the number from the "X copies available" text
+    var copiesCount = parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
 
-    if (copies_count < minimum_books)
-    {
-      book_entry.style.display = 'none';
+    // Hide those with copies less than minimumBooks
+    if (copiesCount < minimumBooks) {
+      bookEntry.style.display = 'none';
     }
   }
 }
@@ -46,10 +45,8 @@ function readyFire()
   if ( ! playground_present)
   {
     setTimeout(function() {readyFire()}, 1000);
-  }
-  else
-  {
-    wipeOut(minimum_books);
+  } else {
+    wipeOut(minimumBooks);
   }
 }
 
