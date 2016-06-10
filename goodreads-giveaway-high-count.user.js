@@ -41,9 +41,9 @@ function wipeOut(minimumBooks)
 
 function readyFire()
 {
-  var playground_present = document.getElementsByClassName('listElement');
-  if ( ! playground_present)
-  {
+  var footerIsLoaded = document.getElementsByClassName('footer');
+
+  if (!footerIsLoaded) {
     setTimeout(function() {readyFire()}, 1000);
   } else {
     wipeOut(minimumBooks);
