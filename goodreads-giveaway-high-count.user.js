@@ -5,10 +5,10 @@
 // @include       https://www.goodreads.com/giveaway*
 // @exclude       https://www.goodreads.com/giveaway/show/*
 // @grant         none
-// @copyright     2014 Soon Van
+// @copyright     2014-2017 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.1
+// @version       1.2
 // ==/UserScript==
 
 var minimumBooks = 10;
@@ -22,11 +22,11 @@ function wipeOut(minimumBooks)
     var bookEntry = listBooks[i];
 
     // Drill down to the right side of the entry
-    var giveawayDetails = bookEntry.querySelectorAll('div.giveawayDetails');
+    var giveawayDetails = bookEntry.querySelectorAll('p.giveawayDetailItem');
     giveawayDetailItem = Array.prototype.slice.call(giveawayDetails); // Convert into array
 
     // Look for the "Availability" block
-    var giveawayAvailability = giveawayDetailItem[0].childNodes[3].innerText.trim();
+    var giveawayAvailability = giveawayDetailItem[1].innerText.trim();
     giveawayCopies = giveawayAvailability.split('\n');
 
     // Grab the number from the "X copies available" text
