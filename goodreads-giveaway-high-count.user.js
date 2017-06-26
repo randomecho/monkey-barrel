@@ -13,46 +13,45 @@
 
 var minimumBooks = 10;
 
-function wipeOut(minimumBooks)
-{
+function scanGiveawayListings(minimumBooks) {
   var listBooks = document.getElementsByClassName('giveawayListItem');
   listBooks = Array.prototype.slice.call(listBooks);
 
-  for (i = 0; i < listBooks.length; i++) {
+  for (var i = 0; i < listBooks.length; i++) {
     var bookEntry = listBooks[i];
 
     // Drill down to the right side of the entry
     var giveawayDetails = bookEntry.querySelectorAll('p.giveawayDetailItem');
     giveawayDetailItem = Array.prototype.slice.call(giveawayDetails); // Convert into array
 
-    // Look for the "Availability" block
-    for (j = 0; j < giveawayDetailItem.length; j++) {
-      if (giveawayDetailItem[j].innerText.trim().indexOf('Availability:') !== -1) {
-        var giveawayAvailability = giveawayDetailItem[j].innerText.trim();
-        giveawayCopies = giveawayAvailability.split('\n');
+    copiesCount = getAvailabilityCount(giveawayDetailItem);
 
-        // Grab the number from the "X copies available" text
-        var copiesCount = parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
-
-        // Hide those with copies less than minimumBooks
-        if (copiesCount < minimumBooks) {
-          bookEntry.style.display = 'none';
-        }
-
-        break;
-      }
+    // Hide those with copies less than minimumBooks
+    if (copiesCount < minimumBooks) {
+      bookEntry.style.display = 'none';
     }
   }
 }
 
-function readyFire()
-{
+function getAvailabilityCount(giveawayDetailItem) {
+  for (var i = 0; i < giveawayDetailItem.length; i++) {
+    if (giveawayDetailItem[i].innerText.trim().indexOf('Availability:') !== -1) {
+      var giveawayAvailability = giveawayDetailItem[i].innerText.trim();
+      giveawayCopies = giveawayAvailability.split('\n');
+
+      // Grab the number from the "X copies available" text
+      return parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
+    }
+  }
+}
+
+function readyFire() {
   var footerIsLoaded = document.getElementsByClassName('footer');
 
   if (!footerIsLoaded) {
     setTimeout(function() {readyFire()}, 1000);
   } else {
-    wipeOut(minimumBooks);
+    scanGiveawayListings(minimumBooks);
   }
 }
 
