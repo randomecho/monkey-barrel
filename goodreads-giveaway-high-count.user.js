@@ -8,7 +8,7 @@
 // @copyright     2014-2017 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.3
+// @version       1.4
 // ==/UserScript==
 
 var minimumBooks = 10;
@@ -40,7 +40,7 @@ function getAvailabilityCount(giveawayDetailItem) {
       giveawayCopies = giveawayAvailability.split('\n');
 
       // Grab the number from the "X copies available" text
-      return parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
+      return parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''), 10);
     }
   }
 }
