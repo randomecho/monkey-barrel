@@ -8,7 +8,7 @@
 // @copyright     2014-2017 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.2
+// @version       1.3
 // ==/UserScript==
 
 var minimumBooks = 10;
@@ -26,15 +26,21 @@ function wipeOut(minimumBooks)
     giveawayDetailItem = Array.prototype.slice.call(giveawayDetails); // Convert into array
 
     // Look for the "Availability" block
-    var giveawayAvailability = giveawayDetailItem[1].innerText.trim();
-    giveawayCopies = giveawayAvailability.split('\n');
+    for (j = 0; j < giveawayDetailItem.length; j++) {
+      if (giveawayDetailItem[j].innerText.trim().indexOf('Availability:') !== -1) {
+        var giveawayAvailability = giveawayDetailItem[j].innerText.trim();
+        giveawayCopies = giveawayAvailability.split('\n');
 
-    // Grab the number from the "X copies available" text
-    var copiesCount = parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
+        // Grab the number from the "X copies available" text
+        var copiesCount = parseInt(giveawayCopies[1].replace(/cop(ies|y)/i, ''));
 
-    // Hide those with copies less than minimumBooks
-    if (copiesCount < minimumBooks) {
-      bookEntry.style.display = 'none';
+        // Hide those with copies less than minimumBooks
+        if (copiesCount < minimumBooks) {
+          bookEntry.style.display = 'none';
+        }
+
+        break;
+      }
     }
   }
 }
