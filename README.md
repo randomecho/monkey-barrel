@@ -16,6 +16,10 @@ having to click the pagination links.
 
 Uncheck the "Send mail for this update" on the Jira Bulk Edit screen.
 
+### [Jira Workflow transitioner shortcuts](./jira-workflow-transitioner.user.js)
+
+Add shortcut keys of `>` and `<` to trigger first two options in workflow transition.
+
 
 ## License
 
