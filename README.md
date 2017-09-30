@@ -12,6 +12,10 @@ The higher the count, the not-as-bad chances of winning a review copy.
 Navigate the giveaway pages with left and right arrow keys instead of
 having to click the pagination links.
 
+### [Jira Uncheck bulk edit emailer](./jira-uncheck-bulk-edit-mailer.user.js)
+
+Uncheck the "Send mail for this update" on the Jira Bulk Edit screen.
+
 
 ## License
 
