@@ -10,7 +10,7 @@
 // @copyright     2017 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.0
+// @version       1.1
 // ==/UserScript==
 
 // Pre-selects the Edit Issues option on the Step 2 of 4 page before Operation Details
@@ -23,7 +23,8 @@ function hideCustomFields() {
   var customFields = document.getElementsByClassName('checkbox');
 
   for (var i in customFields) {
-    if (customFields[i].getAttribute('id').indexOf('cbcustomfield_') !== -1) {
+    if (customFields.hasOwnProperty(i) &&
+        customFields[i].getAttribute('id').indexOf('cbcustomfield_') !== -1) {
         customFields[i].parentNode.parentNode.style.display = 'none';
     }
   }
@@ -38,10 +39,10 @@ function hideStandardFields() {
     'cbissuetype',
     'cbpriority',
     'cbreporter',
-    'cbversions',
+    'cbversions'
   ];
 
-  for (var i in hideAwayFields) {
+  for (var i = 0, n = hideAwayFields.length; i < n; i++) {
     var fieldName = document.getElementById(hideAwayFields[i]);
 
     if (fieldName) {
