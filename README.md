@@ -12,6 +12,12 @@ The higher the count, the not-as-bad chances of winning a review copy.
 Navigate the giveaway pages with left and right arrow keys instead of
 having to click the pagination links.
 
+### [Jira Hide unused bulk edit fields](./jira-bulk-edit-hide-unused-fields.user.js)
+
+Hide fields from Bulk Edit screen that are not usually bulk edited
+(including a whole bunch of custom fields). Also pre-selects the
+"Edit Issues" option on the Step 2 of 4 page before Operation Details.
+
 ### [Jira Uncheck bulk edit emailer](./jira-uncheck-bulk-edit-mailer.user.js)
 
 Uncheck the "Send mail for this update" on the Jira Bulk Edit screen.
