@@ -26,6 +26,12 @@ Uncheck the "Send mail for this update" on the Jira Bulk Edit screen.
 
 Add shortcut keys of `>` and `<` to trigger first two options in workflow transition.
 
+### [Projector Redirect back into timesheet](./projector-timesheet-redirect.user.js)
+
+Redirect to timesheet page after being logged out or on the dashboard.
+That pesky screen about not being authorised is a nuisance asking to
+be bounced away from.
+
 
 ## License
 
