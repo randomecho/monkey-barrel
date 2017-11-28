@@ -8,10 +8,13 @@
 // @copyright     2017 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.0
+// @version       1.1
 // ==/UserScript==
 
 function transitionIssue(e) {
+  if (e.target.tagName.toLowerCase() === 'textarea')
+    return;
+
   var workflowTransitions = document.getElementsByClassName('issueaction-workflow-transition');
 
   if (!workflowTransitions[0])
