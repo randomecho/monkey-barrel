@@ -30,10 +30,10 @@ function arrowPager(e) {
 }
 
 function detectArrowKeyPressed(e) {
-  if (e.keyCode == 37) {
-    return 'previous_page';
-  } else if (e.keyCode == 39) {
+  if (e.keyCode == 39) {
     return 'next_page';
+  } else if (e.keyCode == 37) {
+    return 'previous_page';
   }
 
   return false;
