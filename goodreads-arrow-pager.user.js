@@ -15,16 +15,17 @@ function arrowPager(e) {
   pager_class = detectArrowKeyPressed(e);
 
   if (pager_class !== false) {
-    // There should be only one link classed as either, so grab it
-    var pager_node = document.getElementsByClassName(pager_class);
-    
-    if (typeof(pager_node[0]) != 'undefined') {
-      page_url = pager_node[0].getAttribute('href');
+    changeToPage(document.getElementsByClassName(pager_class));
+  }
+}
 
-      // First and last pager links will not have a URL set
-      if (page_url) {
-        document.location = page_url;
-      }
+function changeToPage(pager_node) {
+  if (typeof(pager_node[0]) != 'undefined') {
+    page_url = pager_node[0].getAttribute('href');
+
+    // First and last pager links will not have a URL set
+    if (page_url) {
+      document.location = page_url;
     }
   }
 }
