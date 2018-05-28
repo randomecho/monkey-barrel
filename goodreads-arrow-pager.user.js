@@ -8,38 +8,35 @@
 // @copyright     2014 Soon Van
 // @author        Soon Van - randomecho.com
 // @license       http://opensource.org/licenses/BSD-3-Clause
-// @version       1.0
+// @version       1.1
 // ==/UserScript==
 
-function arrowPager(e)
-{
-  var pager_class = '';
+function arrowPager(e) {
+  pager_class = detectArrowKeyPressed(e);
 
-  if (e.keyCode == 37)
-  {
-    pager_class = 'previous_page';
-  }
-  else if (e.keyCode == 39)
-  {
-    pager_class = 'next_page';
-  }
-
-  if (pager_class != '')
-  {
+  if (pager_class !== false) {
     // There should be only one link classed as either, so grab it
     var pager_node = document.getElementsByClassName(pager_class);
     
-    if (typeof(pager_node[0]) != 'undefined')
-    {
+    if (typeof(pager_node[0]) != 'undefined') {
       page_url = pager_node[0].getAttribute('href');
 
       // First and last pager links will not have a URL set
-      if (page_url)
-      {
+      if (page_url) {
         document.location = page_url;
       }
     }
   }
+}
+
+function detectArrowKeyPressed(e) {
+  if (e.keyCode == 37) {
+    return 'previous_page';
+  } else if (e.keyCode == 39) {
+    return 'next_page';
+  }
+
+  return false;
 }
 
 document.addEventListener('keydown', arrowPager, false);
