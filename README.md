@@ -32,6 +32,10 @@ Redirect to timesheet page after being logged out or on the dashboard.
 That pesky screen about not being authorised is a nuisance asking to
 be bounced away from.
 
+### [eBay Relisting Resetter](./ebay-relisting-resetter.user.js)
+
+Reset fields more typical of plain month-long fixed-priced items.
+
 
 ## License
 
