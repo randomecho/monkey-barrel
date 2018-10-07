@@ -9,15 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-function fieldNope(fieldName) {
-  let fielded = document.getElementById(fieldName);
-
-  if (fielded) {
-    fielded.value = 'No';
-  }
-}
-
-function fieldChoice(fieldName, value) {
+function fieldChange(fieldName, value) {
   let fielded = document.getElementById(fieldName);
 
   if (fielded) {
@@ -25,9 +17,8 @@ function fieldChoice(fieldName, value) {
   }
 }
 
-fieldNope('Listing.Item.ItemSpecific[Non-Domestic Product]');
-fieldNope('Listing.Item.ItemSpecific[Custom Bundle]');
-fieldNope('Listing.Item.ItemSpecific[Modified Item]');
-
-fieldChoice('format', 'FixedPrice');
-fieldChoice('duration', 'Days_30');
+fieldChange('Listing.Item.ItemSpecific[Non-Domestic Product]', 'No');
+fieldChange('Listing.Item.ItemSpecific[Custom Bundle]', 'No');
+fieldChange('Listing.Item.ItemSpecific[Modified Item]', 'No');
+fieldChange('format', 'FixedPrice');
+fieldChange('duration', 'Days_30');
