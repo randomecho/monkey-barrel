@@ -36,6 +36,10 @@ having to click the pagination links.
 
   Reset fields more typical of plain month-long fixed-priced items.
 
+- [Skip extra-charge fields](./ebay-skip-unused-fields.user.js)
+
+  Lock out options not necessarily used like Subtitle, Gallery
+
 ### Misc
 
 - [Projector Redirect back into timesheet](./projector-timesheet-redirect.user.js)
