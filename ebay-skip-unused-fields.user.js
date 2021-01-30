@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         eBay - Skip extra-charge, unused options
 // @namespace    randomecho.com
-// @version      0.3
+// @version      0.4
 // @description  Lock out options not necessarily used like Subtitle, Gallery
 // @author       Soon Van - randomecho.com
 // @match        https://bulksell.ebay.com/ws/eBayISAPI.dll?SingleList*
@@ -26,3 +26,10 @@ function setLockouts() {
 }
 
 setLockouts();
+
+const resetLockouts = function() {
+    setTimeout(setLockouts, 7000);
+};
+
+const editPaneContainer = document.getElementById('editpane_cnt');
+editPaneContainer.addEventListener("change", resetLockouts, false);
