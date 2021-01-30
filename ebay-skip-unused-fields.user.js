@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         eBay - Skip extra-charge, unused options
 // @namespace    randomecho.com
-// @version      0.2
+// @version      0.3
 // @description  Lock out options not necessarily used like Subtitle, Gallery
 // @author       Soon Van - randomecho.com
 // @match        https://bulksell.ebay.com/ws/eBayISAPI.dll?SingleList*
@@ -23,7 +23,6 @@ function setLockouts() {
     lockoutField('bold');
     lockoutField('editpane_subtitle');
     lockoutField('galleryPlus');
-    lockoutField('Listing.AutoRelist');
 }
 
 setLockouts();
